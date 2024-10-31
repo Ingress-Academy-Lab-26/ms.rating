@@ -1,0 +1,22 @@
+
+services:
+  postgres:
+    container_name: postgres_ratings
+    image: "postgres:latest"
+    environment:
+      POSTGRES_DB: ratings_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: j@vacefer2005
+    ports:
+      - "1111:5432"
+    volumes:
+      - ratings_db:/var/lib/postgresql/data
+
+  redis:
+    image: redis:latest
+    container_name: redis-container
+    ports:
+      - "6379:6379"
+
+volumes:
+  ratings_db:
